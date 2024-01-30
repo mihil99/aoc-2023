@@ -3,9 +3,9 @@
 #include <ctype.h>
 #include <stdbool.h>
 
+// extract number inspired by https://github.com/janiorca/advent-of-code-2023/blob/main/aoc1.c
 #define LINE_LENGTH 256
 
-// one, two, three, four, five, six, seven, eight, nine
 const char nums[9][6] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
 int extract_num(char* c) {
