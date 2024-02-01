@@ -26,10 +26,12 @@ int extract_num_from_line(char *line, bool check_words) {
   return 10*(char_to_num(first, check_words)) + char_to_num(last, check_words);
 }
 
-int main()
+int main(int argc, char** argv)
 {
   // PART 1
-  const char *filename = "./1.input";
+  (void)argc; //Cast to get rid of compiler warning
+  char filename[LINE_LENGTH];
+  strcpy(filename, argv[1]);
   FILE *fp = fopen(filename, "r");
   char line[LINE_LENGTH];
   int sum = 0;
