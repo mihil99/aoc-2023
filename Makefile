@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
-NUMBER = 1
+NUMBER = 2
 
 all: my_program
 
