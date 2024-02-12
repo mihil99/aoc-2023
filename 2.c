@@ -7,23 +7,42 @@
 #define RED 12
 #define GREEN 13
 #define BLUE 14
-#define DELIMITER ";"
+#define GAME_DELIMITER ";"
+#define DRAW_DELIMITER ","
 
 bool possible_draw(char* draw) {
-    return false;
+  draw++;
+  int amount = atoi(draw);
+  while (*draw != ' ') draw ++;
+  draw++;
+  if (strcmp("red", draw) == 0) {
+    return amount <= RED;
+  }
+  if (strcmp("green", draw) == 0) {
+    return amount <= GREEN;
+  }
+  if (strcmp("blue", draw) == 0) {
+    return amount <= BLUE;
+  }
+  return false;
 }
 
 int possible_game(char *line){
     char *t = line;
     t += strlen("GAME ");
     int game_num = atoi(t);
+    printf("GAME: %d\n", game_num);
     while(*t != ' ') {
         t++;
     }
-    char *token = strtok(t, DELIMITER);
-    while (token != NULL) {
-        // do something with token
+    // LOOP OVER GAMES WITHIN LINE
+    char *game_info = strtok(t, GAME_DELIMITER);
+    while (game_info != NULL) {
+      char *cur_game = strdup(game_info);
+      printf("%s\n", cur_game);
+      game_info = strtok(NULL, GAME_DELIMITER);
     }
+    return game_num;
 }
 
 
